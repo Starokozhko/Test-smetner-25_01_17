@@ -28,8 +28,8 @@ function Modul(){
 			};
 			self.data[i] = datas;
 		}
-
-		return self.data;
+// console.log(self.data);
+		return;
 	}
 
 	self.addItem = function (item) {
@@ -39,9 +39,10 @@ function Modul(){
 
 		var id = getRandomInt();
 		var datas = item;
+
 		localStorage.setItem(id, JSON.stringify(datas));
 		setItemLocalS();
-		return self.data;
+		return;
 	};
 
 	self.change = function(id, val) {
@@ -50,8 +51,16 @@ function Modul(){
 	};
 
 	self.removeItem = function (item) {
-
 		localStorage.removeItem(item);
+		for(var i = 0; i <= self.data.length; i++){
+// console.log(self.data[i].id);
+// console.log(item);
+			if (self.data[i].id == item) {
+				
+				self.data.splice(i, 1);
+				return true;
+			}
+		}
 
 	};
 

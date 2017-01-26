@@ -3,11 +3,23 @@ function Controller(modul, view ){
 	var self = this;
 
 	view.elements.addBtn.click(addItem);
+	view.elements.input.keyup(addItem);
 	view.elements.listContainer.on('click', '.item-delete', removeItem);
 	view.elements.listContainer.on('click', '.item-fix', fixItem);
 	view.elements.listContainer.on('click', '.item-done', doneCorrect);
 
+function key(event) {return ('which' in event) ? event.which : event.keyCode;}
+
 	function addItem() {
+
+		if (key(event) != 1) {
+			
+			if(key(event)!=13){
+					return false;
+			}
+		}
+
+
 		var newItem = view.elements.input.val();
 
 		modul.addItem(newItem);
