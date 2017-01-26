@@ -74,10 +74,16 @@ ul li {
 
 @media all and (max-width: 494px) {
 
-	aside { text-align: center;}
+	aside { text-align: center; order: 1;  }
 	aside, section {	
 		margin: 20px 0 0; 
-		order: 2;  
-		flex-basis: 100%;}
+		
+		flex-basis: 100%;
+	}
+	section {
+		 order: 2;
+	}
+
+
 
 	}
